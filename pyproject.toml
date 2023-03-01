@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "hw-28-django-master"
+version = "0.1.0"
+description = ""
+authors = ["ALFA <pvp624140@gmail.com>"]
+readme = "README.md"
+packages = [{include = "hw_28_django_master"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+django = "^4.1.7"
+psycopg2 = "^2.9.5"
+pillow = "^9.4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
