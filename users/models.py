@@ -1,4 +1,6 @@
+
 from django.db import models
+
 
 class Location(models.Model):
     name = models.CharField(max_length=200)
@@ -13,18 +15,21 @@ class Location(models.Model):
         return self.name
 
 
-# Create your models here.
+class Roles(models.TextChoices):
+    ADMIN = 'admin', 'Админ'
+    MODERATOR = 'moderator', 'Модератор'
+    MEMBER = 'member', 'Пользователь'
+
+
 class User(models.Model):
-
-    class Roles(models.TextChoices):
-        ADMIN = 'admin', 'Админ'
-        MODERATOR = 'moderator', 'Модератор'
-        MEMBER = 'member', 'Пользователь'
-
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     username = models.CharField(max_length=200)
     password = models.CharField(max_length=200)
-    role = models.CharField(max_length=200, choices = Roles.choices)
+    role = models.CharField(max_length=200, choices=Roles.choices)
     age = models.PositiveIntegerField()
     location = models.ForeignKey(Location, on_delete=models.CASCADE, null=True)
+
+
+
+
